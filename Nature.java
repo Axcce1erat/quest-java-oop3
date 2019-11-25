@@ -1,3 +1,4 @@
+// Nature, which you will compile and run to see how everything works
 public class Nature {
 
     public static void main(String[] args) {
@@ -13,7 +14,6 @@ public class Nature {
 
         Eagle eyeCherry = new Eagle("Eye Cherry");
         // TODO : uncomment the following code in order to test it
-        /*
         eyeCherry.takeOff();
         eyeCherry.ascend(120);
         eyeCherry.ascend(30);
@@ -22,6 +22,5 @@ public class Nature {
         eyeCherry.land();
         eyeCherry.descend(9);
         eyeCherry.land();
-        */
     }
 }

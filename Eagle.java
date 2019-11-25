@@ -14,8 +14,16 @@ public class Eagle extends Bird implements Fly{
         return altitude;
     }
 
+    public void setAltitude(int altitude){
+        this.altitude = altitude;
+    }
+
     public boolean isFlying() {
         return flying;
+    }
+
+    public void setFlying(boolean flying){
+        this.flying = flying;
     }
 
     @Override
@@ -26,35 +34,44 @@ public class Eagle extends Bird implements Fly{
     //You will be able to determine the behaviour of the methods, but each method must display text in the console.
     @Override
     public void takeOff(){
-        if (!this.flying && this.altitude){
+        if (!this.flying){
+            System.out.println(this.getName()+" takes of into the sky!");
             this.flying = true;
-            System.out.prinftf("%s Is flying through the air %n", this.getName())
+        }
+        else {
+            System.out.println(this.getName()+" is on the fly!");
         }
     }
 
     @Override
-    public void ascends(int meters){
+    public int ascend(int meters){
         if (this.flying){
-            this.altitude = Math.min(this.altitude + meters, 100);
-            System.out.printf("%s flying up, altitude: %d%n", this.altitude, this.getName())
+            this.altitude = Math.min(this.altitude+meters, 1000);
+            System.out.println(this.getName()+" flying up, altitude: "+this.altitude);
         }
         return this.altitude;
     }
 
-    public void descends(int meters){
+    public int descend(int meters){
         if (this.flying){
-            this.altitude = Math.min(this.altitude + meters, 0);
-            System.out.printf("%s flying down, altitude: %d%n", this.altitude, this.getName())
+            this.altitude = Math.min(this.altitude + meters, 1);
+            System.out.println(this.getName()+" flying down, altitude: "+this.altitude);
         }
         return this.altitude;
     }
 
     public void land(){
-        if (this.flying && this.flying == 0){
-            System.out.printf("%s sits in his nest %n", this.getName())
+        if (this.flying) {
+            if (this.altitude > 1) {
+                System.out.println(this.getName() + " this is too high to land!");
+            } else {
+                this.flying = false;
+                this.altitude = 0;
+                System.out.println(this.getName() + " lands on the ground!");
+            }
         }
-        else{
-            System.out.printf("%s this is too high, it can't get into the nest %n", this.getName())
+        else {
+            System.out.println(this.getName() + " is on the ground!");
         }
     }
 }
